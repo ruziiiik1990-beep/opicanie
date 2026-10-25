@@ -1,4 +1,4 @@
-<!-- Контейнер для 3D пространства сцены -->
+<!-- Контейнер для 3D пространства сцены (без фонов) -->
 <div class="book-scene">
   <div class="book-container">
     
@@ -35,7 +35,7 @@
       <div class="page-content">
         <h3>📝 Основные правила</h3>
         <ul>
-          <li><b>Верификация:</b> Обязательно привяжите Steam к сайту. Скопируйте проверочный код в поле «О себе» в Steam, чтобы админ верифицировал ваш аккаунт для захода на сервер CS2. Сайт не собирает ваши данные!</li>
+          <li><b>Верификация:</b> Обязательно привяжите Steam к сайту. Скопируйте проверочный код в поле «О себе» в Steam, чтобы админ верифицировал ваш аккаунт для захода на сервер CS2. Сайт не собирает ваши личные данные!</li>
           <li><b>Формат:</b> Сетка плей-офф 5х5. Турнир проходит раз в 2 недели (с пятницы по воскресенье). Регистрация открывается 1-го числа месяца.</li>
           <li><b>Рандом:</b> Участники распределяются по командам случайно (играть с друзьями не получится). Победители этапа снова перемешиваются в новые команды для следующей стадии.</li>
         </ul>
@@ -55,19 +55,17 @@
   </div>
 </div>
 
-<!-- СТИЛИ ДЛЯ РЕАЛИСТИЧНОГО 3D ЭФФЕКТА -->
+<!-- СТИЛИ С ИСПРАВЛЕННЫМ 3D И БЕЗ БЕЛОГО ФОНА -->
 <style>
-/* Сцена и центрирование */
 .book-scene {
-  perspective: 1200px;
+  perspective: 1500px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 60px 0;
-  background: transparent;
+  background: transparent !important; /* Убираем любые внешние фоны */
 }
 
-/* Основа книги */
 .book-container {
   position: relative;
   width: 350px;
@@ -77,12 +75,10 @@
   transform: rotateX(15deg) rotateY(-10deg);
 }
 
-/* При наведении разворачиваем всю книгу на столе */
 .book-scene:hover .book-container {
-  transform: rotateX(10deg) rotateY(-25deg) translateX(50px);
+  transform: rotateX(10deg) rotateY(-25deg) translateX(40px);
 }
 
-/* Общие свойства для всех страниц */
 .book-page {
   position: absolute;
   width: 100%;
@@ -92,11 +88,11 @@
   border-radius: 4px 12px 12px 4px;
   transform-origin: left center;
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s;
-  backface-visibility: hidden;
+  transform-style: preserve-3d; /* Фикс для корректного разделения слоев в 3D */
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Передняя обложка (Кожаная текстура) */
+/* Передняя обложка */
 .front-cover {
   background: linear-gradient(135deg, #8B0000 0%, #4A0000 100%);
   border-left: 8px solid #2A0000;
@@ -109,6 +105,7 @@
   align-items: center;
   text-align: center;
   border: 2px solid #5A0000;
+  backface-visibility: hidden; /* Прячет обложку сзади, когда она открыта */
 }
 
 .cover-title h2 {
@@ -116,7 +113,6 @@
   font-size: 28px;
   letter-spacing: 4px;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
 .cover-title .badge {
@@ -128,7 +124,6 @@
   margin: 15px 0;
   border-radius: 4px;
   letter-spacing: 2px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 .cover-title p {
@@ -149,10 +144,10 @@
 .back-cover {
   background: #4A0000;
   z-index: 1;
-  transform: rotateY(-180deg);
+  transform: rotateY(0deg);
 }
 
-/* Внутренние бумажные страницы */
+/* Бумажные страницы внутри */
 .inner-page-main, .inner-page-1, .inner-page-2 {
   background: #fcf8f2;
   color: #2b2b2b;
@@ -164,7 +159,6 @@
 .inner-page-1 { z-index: 3; }
 .inner-page-2 { z-index: 2; }
 
-/* Верстка текста на страницах */
 .page-content {
   padding: 30px 25px 30px 40px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -200,30 +194,27 @@
   padding-top: 10px;
 }
 
-/* МЕХАНИКА ПЕРЕЛИСТЫВАНИЯ СТРАНИЦ ПРИ НАВЕДЕНИИ */
-
-/* 1. Открываем переднюю обложку */
+/* ТРАЕКТОРИЯ РАЗВОРОТА СТРАНИЦ ВЕЕРОМ */
 .book-scene:hover .front-cover {
-  transform: rotateY(-140deg);
-  box-shadow: 15px 4px 20px rgba(0,0,0,0.2);
+  transform: rotateY(-145deg);
+  z-index: 1;
 }
 
-/* 2. Листаем первую страницу с основными правилами */
 .book-scene:hover .inner-page-main {
-  transform: rotateY(-135deg);
+  transform: rotateY(-130deg);
+  z-index: 2;
 }
 
-/* 3. Листаем вторую страницу с античитом */
 .book-scene:hover .inner-page-1 {
-  transform: rotateY(-20deg);
+  transform: rotateY(-15deg);
+  z-index: 3;
 }
 
-/* 4. Последняя страница и задняя обложка остаются лежать плоско */
 .book-scene:hover .inner-page-2 {
-  transform: rotateY(-10deg);
+  transform: rotateY(-5deg);
+  z-index: 4;
 }
 
-/* Анимация подсказки */
 @keyframes pulse {
   0% { opacity: 0.5; }
   50% { opacity: 1; }

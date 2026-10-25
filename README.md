@@ -1,4 +1,162 @@
-<!-- Контейнер сцены книги (Фон полностью прозрачный, без надписей) -->
+<!DOCTYPE html>
+<html lang="ru" style="background: transparent !important;">
+<head>
+  <meta charset="UTF-8">
+  <title>Правила</title>
+  <style>
+    /* Убиваем любые фоны, отступы и надписи темы GitHub на корню */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent !important;
+      background-color: transparent !important;
+      overflow: hidden;
+    }
+    
+    /* Базовые стили для книги со стрелками */
+    .book-viewport {
+      perspective: 2000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      background: transparent !important;
+    }
+    .book-wrapper {
+      position: relative;
+      width: 380px;
+      height: 520px;
+      transform-style: preserve-3d;
+      transform: rotateX(15deg) rotateY(-5deg);
+    }
+    .b-page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform-origin: left center;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border-radius: 4px 12px 12px 4px;
+    }
+    .page-side {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      border-radius: 4px 12px 12px 4px;
+    }
+    .back-side {
+      transform: rotateY(180deg);
+      background: #f5edd6;
+    }
+    .front-cover-page {
+      background: linear-gradient(135deg, #8B0000 0%, #4A0000 100%);
+      border-left: 8px solid #2A0000;
+      border: 2px solid #5A0000;
+    }
+    .back-cover-page {
+      background: #4A0000;
+      border-left: 8px solid #2A0000;
+    }
+    .cover-design {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: #D4AF37;
+      text-align: center;
+    }
+    .cover-design h2 {
+      font-family: 'Georgia', serif;
+      font-size: 26px;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+    .gold-badge {
+      background: #D4AF37;
+      color: #4A0000;
+      padding: 6px 20px;
+      font-weight: bold;
+      font-size: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      letter-spacing: 2px;
+    }
+    .cover-design p {
+      font-size: 13px;
+      color: #f0e6d2;
+      font-style: italic;
+    }
+    .open-book-btn {
+      background: #D4AF37;
+      color: #4A0000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .nav-arrow {
+      position: absolute;
+      bottom: 20px;
+      background: #8B0000;
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      font-size: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    .next-arrow { right: 20px; }
+    .prev-arrow { left: 40px; }
+    .paper-page {
+      background: #fcf8f2;
+      color: #2b2b2b;
+      border: 1px solid #e8dec9;
+    }
+    .text-box {
+      padding: 45px 25px 30px 45px;
+      font-family: sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .text-box h3 {
+      font-family: 'Georgia', serif;
+      color: #8B0000;
+      border-bottom: 2px solid #e8dec9;
+      padding-bottom: 8px;
+      margin-top: 0;
+      font-size: 18px;
+    }
+    .text-box ul { padding-left: 15px; margin: 0; }
+    .text-box li { margin-bottom: 12px; }
+    .small-text-note {
+      font-style: italic;
+      font-size: 11px;
+      color: #777;
+      margin-top: 25px;
+      text-align: center;
+      border-top: 1px dashed #ddd;
+      padding-top: 10px;
+    }
+    .b-page.flipped {
+      transform: rotateY(-180deg);
+    }
+  </style>
+</head>
+<body>
+
 <div class="book-viewport">
   <div class="book-wrapper" id="myBook">
     
@@ -17,7 +175,6 @@
           </ul>
           <p class="small-text-note">Турнир создан ради эмоций и символических призов!</p>
         </div>
-        <!-- Стрелка назад -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(3, 'prev')">↩ Назад</button>
       </div>
     </div>
@@ -26,18 +183,16 @@
     <div class="b-page paper-page" id="p2" style="z-index: 3;">
       <div class="page-side front-side">
         <div class="text-box">
-          <h3>🛡️ Античит и Старт</h3>
+          <h3>🛡️ Anti-cheat и Старт</h3>
           <ul>
             <li><b>Запуск:</b> Перед запуском игры <b>обязательно</b> включите античит <u>ruzikTastyAC</u>. Включение во время игры — тех. поражение всей команде.</li>
             <li><b>Коннект к серверу:</b> После согласования времени в чате появится кнопка <b>Connected</b> для автовыхода на сервер CS2.</li>
             <li><b>Логи матча:</b> После игры найдите в «Моих документах» файл <b>match_log</b> и загрузите его через <b>желтый плюс</b> в чате матча.</li>
           </ul>
         </div>
-        <!-- Стрелка вперед -->
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- Кнопка назад для возврата на стр 2 -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(2, 'prev')">↩ Назад</button>
       </div>
     </div>
@@ -53,11 +208,9 @@
             <li><b>Рандом:</b> Участники распределяются по командам случайно. Победители этапа снова перемешиваются в новые команды для следующей стадии.</li>
           </ul>
         </div>
-        <!-- Стрелка вперед -->
         <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- Кнопка назад для возврата на стр 1 -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(1, 'prev')">↩ Назад</button>
       </div>
     </div>
@@ -77,191 +230,18 @@
   </div>
 </div>
 
-<!-- СТИЛИ: ЧИСТЫЙ ИНТЕРАКТИВ И ПРОЗРАЧНОСТЬ -->
-<style>
-.book-viewport {
-  perspective: 2000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 0;
-  background: transparent !important; /* Полностью убирает белый фон сцены */
-}
-
-.book-wrapper {
-  position: relative;
-  width: 380px;
-  height: 520px;
-  transform-style: preserve-3d;
-  transform: rotateX(15deg) rotateY(-5deg);
-  transition: transform 0.5s;
-}
-
-.b-page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transform-origin: left center;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  border-radius: 4px 12px 12px 4px;
-}
-
-/* Две стороны страницы для правильного отображения при перевороте */
-.page-side {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  backface-visibility: hidden;
-  border-radius: 4px 12px 12px 4px;
-}
-
-.back-side {
-  transform: rotateY(180deg);
-  background: #f5edd6;
-}
-
-/* Обложки (Стиль под старую кожу) */
-.front-cover-page {
-  background: linear-gradient(135deg, #8B0000 0%, #4A0000 100%);
-  border-left: 8px solid #2A0000;
-  border: 2px solid #5A0000;
-}
-
-.back-cover-page {
-  background: #4A0000;
-  border-left: 8px solid #2A0000;
-}
-
-/* Дизайн обложки */
-.cover-design {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  color: #D4AF37;
-  text-align: center;
-}
-
-.cover-design h2 {
-  font-family: 'Georgia', serif;
-  font-size: 26px;
-  letter-spacing: 3px;
-  margin: 0;
-}
-
-.gold-badge {
-  background: #D4AF37;
-  color: #4A0000;
-  padding: 6px 20px;
-  font-weight: bold;
-  font-size: 15px;
-  margin: 20px 0;
-  border-radius: 4px;
-  letter-spacing: 2px;
-}
-
-.cover-design p {
-  font-size: 13px;
-  color: #f0e6d2;
-  font-style: italic;
-}
-
-/* Кнопка открытия и стрелки навигации */
-.open-book-btn {
-  background: #D4AF37;
-  color: #4A0000;
-  border: none;
-  padding: 10px 20px;
-  font-size: 13px;
-  font-weight: bold;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-top: 40px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.nav-arrow {
-  position: absolute;
-  bottom: 20px;
-  background: #8B0000;
-  color: #fff;
-  border: none;
-  padding: 6px 14px;
-  font-size: 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  z-index: 10;
-}
-
-.next-arrow { right: 20px; }
-.prev-arrow { left: 40px; }
-
-/* Текстовые бумажные страницы */
-.paper-page {
-  background: #fcf8f2;
-  color: #2b2b2b;
-  border: 1px solid #e8dec9;
-}
-
-.text-box {
-  padding: 45px 25px 30px 45px;
-  font-family: sans-serif;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.text-box h3 {
-  font-family: 'Georgia', serif;
-  color: #8B0000;
-  border-bottom: 2px solid #e8dec9;
-  padding-bottom: 8px;
-  margin-top: 0;
-  font-size: 18px;
-}
-
-.text-box ul { padding-left: 15px; margin: 0; }
-.text-box li { margin-bottom: 12px; }
-.small-text-note {
-  font-style: italic;
-  font-size: 11px;
-  color: #777;
-  margin-top: 25px;
-  text-align: center;
-  border-top: 1px dashed #ddd;
-  padding-top: 10px;
-}
-
-/* СТИЛИ ДЛЯ ПЕРЕВЕРНУТЫХ СТРАНИЦ */
-.b-page.flipped {
-  transform: rotateY(-180deg);
-}
-</style>
-
-<!-- СКРИПТ ДЛЯ ПЕРЕЛИСТЫВАНИЯ СТРАНИЦ КЛИКОМ ПО СТРЕЛКАМ -->
 <script>
 function turnPage(pageId, direction) {
   const page = document.getElementById('p' + pageId);
-  
   if (direction === 'next') {
     page.classList.add('flipped');
-    // Корректируем z-index, чтобы перевернутая страница уходила под низ
-    setTimeout(() => {
-      page.style.zIndex = pageId;
-    }, 300);
+    setTimeout(() => { page.style.zIndex = pageId; }, 300);
   } else if (direction === 'prev') {
-    // Если возвращаемся назад, сначала восстанавливаем правильный верхний слой z-index
     page.style.zIndex = 5 - pageId;
-    setTimeout(() => {
-      page.classList.remove('flipped');
-    }, 50);
+    setTimeout(() => { page.classList.remove('flipped'); }, 50);
   }
 }
 </script>
+
+</body>
+</html>

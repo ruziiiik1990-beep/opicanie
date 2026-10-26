@@ -350,8 +350,21 @@ function turnPage(pageId, direction) {
       document.getElementById('backToStartBtn').style.display = 'inline-block';
     }
   } else if (direction === 'prev') {
-    page.style.zIndex = 6 - pageId;
-    setTimeout(() => { page.classList.remove('flipped'); }, 50);
+    // ПОДНИМАЕМ страницу наверх, чтобы она перевернулась ПОВЕРХ остальных
+    page.style.zIndex = 100; 
+    
+    // Небольшая задержка, чтобы браузер применил z-index, и запускаем анимацию
+    setTimeout(() => {
+      page.classList.remove('flipped');
+    }, 10);
+
+    // После завершения анимации возвращаем нормальный z-index
+    setTimeout(() => { 
+      if (pageId === 1) page.style.zIndex = 5;
+      else if (pageId === 2) page.style.zIndex = 4;
+      else if (pageId === 3) page.style.zIndex = 3;
+      else if (pageId === 4) page.style.zIndex = 2;
+    }, 800); // 800мс — это время анимации
   }
 }
 

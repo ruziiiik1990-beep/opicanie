@@ -23,21 +23,24 @@
     }
     
     .book-viewport {
-      perspective: 2000px;
+      perspective: 3000px; 
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px 0;
+      padding: 40px 0;
       background: transparent !important;
       min-height: 100vh;
     }
+    
     .book-wrapper {
       position: relative;
-      width: 380px;
-      height: 520px;
+      /* УВЕЛИЧЕНИЕ: Ширина теперь 593px, высота 572px */
+      width: 593px; 
+      height: 572px;
       transform-style: preserve-3d;
       transform: rotateX(15deg) rotateY(-5deg);
     }
+    
     .b-page {
       position: absolute;
       width: 100%;
@@ -47,8 +50,8 @@
       transform-origin: left center;
       transform-style: preserve-3d;
       transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      border-radius: 4px 12px 12px 4px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.4);
+      border-radius: 4px 16px 16px 4px;
     }
     .page-side {
       position: absolute;
@@ -57,46 +60,46 @@
       top: 0;
       left: 0;
       backface-visibility: hidden;
-      border-radius: 4px 12px 12px 4px;
+      border-radius: 4px 16px 16px 4px;
     }
     .back-side {
       transform: rotateY(180deg);
       background: #fcf8f2;
-      border-radius: 12px 4px 4px 12px;
+      border-radius: 16px 4px 4px 16px;
       border: 1px solid #e8dec9;
     }
     
     /* ПЕРЕДНЯЯ ОБЛОЖКА */
     .front-cover-page {
       background: linear-gradient(135deg, #8B0000 0%, #4A0000 100%);
-      border-left: 8px solid #2A0000;
+      border-left: 12px solid #2A0000;
       border: 2px solid #5A0000;
     }
     
     /* ЗАДНЯЯ ОБЛОЖКА */
     .back-cover-page {
       background: linear-gradient(135deg, #4A0000 0%, #2A0000 100%);
-      border-left: 8px solid #1A0000;
+      border-left: 12px solid #1A0000;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
     }
 
     .back-cover-text {
       color: #D4AF37;
       font-family: 'Georgia', serif;
-      font-size: 22px;
+      font-size: 28px;
       line-height: 1.5;
       font-weight: bold;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .back-cover-logo {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       border: 3px solid #D4AF37;
       object-fit: cover;
@@ -111,38 +114,38 @@
       height: 100%;
       color: #D4AF37;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
     }
     .cover-design h2 {
       font-family: 'Georgia', serif;
-      font-size: 26px;
-      letter-spacing: 3px;
+      font-size: 36px;
+      letter-spacing: 4px;
       margin: 0;
     }
     .gold-badge {
       background: #D4AF37;
       color: #4A0000;
-      padding: 6px 20px;
+      padding: 10px 30px;
       font-weight: bold;
-      font-size: 15px;
-      margin: 15px 0;
-      border-radius: 4px;
+      font-size: 20px;
+      margin: 20px 0;
+      border-radius: 6px;
       letter-spacing: 2px;
     }
     .cover-design p {
-      font-size: 13px;
+      font-size: 16px;
       color: #f0e6d2;
       font-style: italic;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     
     .front-cover-logo {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       border: 2px solid #D4AF37;
       object-fit: cover;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
@@ -150,12 +153,12 @@
       background: #D4AF37;
       color: #4A0000;
       border: none;
-      padding: 10px 20px;
-      font-size: 13px;
+      padding: 14px 28px;
+      font-size: 16px;
       font-weight: bold;
-      border-radius: 20px;
+      border-radius: 25px;
       cursor: pointer;
-      margin-top: 20px;
+      margin-top: 25px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     
@@ -163,29 +166,29 @@
       background: transparent;
       color: #D4AF37;
       border: 1px solid #D4AF37;
-      padding: 8px 16px;
-      font-size: 12px;
+      padding: 10px 20px;
+      font-size: 14px;
       border-radius: 20px;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 15px;
       display: none;
     }
 
     .nav-arrow {
       position: absolute;
-      bottom: 20px;
+      bottom: 25px;
       background: #8B0000;
       color: #fff;
       border: none;
-      padding: 6px 14px;
-      font-size: 12px;
+      padding: 8px 18px;
+      font-size: 14px;
       border-radius: 4px;
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       z-index: 10;
     }
-    .next-arrow { right: 20px; }
-    .prev-arrow { left: 20px; }
+    .next-arrow { right: 25px; }
+    .prev-arrow { left: 25px; }
     
     .paper-page {
       background: #fcf8f2;
@@ -193,21 +196,21 @@
       border: 1px solid #e8dec9;
     }
     .text-box {
-      padding: 45px 25px 30px 45px;
+      padding: 55px 45px 35px 55px; /* Увеличил отступы для широкой книги */
       font-family: sans-serif;
-      font-size: 13px;
-      line-height: 1.6;
+      font-size: 16px;
+      line-height: 1.7;
     }
     .text-box h3 {
       font-family: 'Georgia', serif;
       color: #8B0000;
       border-bottom: 2px solid #e8dec9;
-      padding-bottom: 8px;
+      padding-bottom: 10px;
       margin-top: 0;
-      font-size: 18px;
+      font-size: 24px;
     }
-    .text-box ul { padding-left: 15px; margin: 0; }
-    .text-box li { margin-bottom: 12px; }
+    .text-box ul { padding-left: 20px; margin: 0; }
+    .text-box li { margin-bottom: 15px; }
     
     /* Стили для гифок */
     .gif-container {
@@ -216,23 +219,23 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      padding: 20px;
+      padding: 30px;
       box-sizing: border-box;
     }
     .page-gif {
       width: 100%;
       max-width: 100%;
-      max-height: 380px;
+      max-height: 400px; /* Ограничил, чтобы не вылезала по высоте */
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 2px solid #e8dec9;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
     .gif-caption {
       font-family: 'Georgia', serif;
       color: #8B0000;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
       text-align: center;
       font-style: italic;
@@ -240,12 +243,12 @@
 
     .small-text-note {
       font-style: italic;
-      font-size: 11px;
+      font-size: 14px;
       color: #777;
-      margin-top: 25px;
+      margin-top: 30px;
       text-align: center;
       border-top: 1px dashed #ddd;
-      padding-top: 10px;
+      padding-top: 15px;
     }
     
     /* Страница "Спасибо" */
@@ -256,18 +259,18 @@
       align-items: center;
       height: 100%;
       text-align: center;
-      padding: 30px;
+      padding: 40px;
     }
     .thanks-page h3 {
       border: none;
       color: #8B0000;
-      font-size: 24px;
-      margin-bottom: 15px;
+      font-size: 32px;
+      margin-bottom: 20px;
     }
     .thanks-page p {
-      font-size: 16px;
+      font-size: 20px;
       color: #333;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
     
     /* Страница-заставка "Читай внимательно" */
@@ -278,18 +281,18 @@
       align-items: center;
       height: 100%;
       text-align: center;
-      padding: 30px;
+      padding: 40px;
     }
     .intro-page h2 {
       border: none;
       color: #8B0000;
-      font-size: 32px;
+      font-size: 42px;
       font-family: 'Georgia', serif;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     .intro-page p {
-      font-size: 18px;
+      font-size: 22px;
       color: #555;
       font-style: italic;
     }
@@ -339,7 +342,6 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(4, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ПУСТАЯ ЗАДНЯЯ СТОРОНА -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(4, 'prev')">↩ Назад</button>
       </div>
     </div>
@@ -358,7 +360,6 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ГИФКА ДЛЯ ПРИЗОВ (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_InexpensiveBlueSquirrelNotATK-tmAsxdSkeHp.gif" class="page-gif" alt="Призы">
           <div class="gif-caption">Ценные призы ждут победителей!</div>
@@ -381,7 +382,6 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ГИФКА ПРО АНТИЧИТ (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
           <div class="gif-caption">Следи за статусом античита!</div>
@@ -400,7 +400,6 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ГИФКА SDSD (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/sdsd.gif" class="page-gif" alt="Правила">
           <div class="gif-caption">Играй честно и побеждай!</div>
@@ -427,6 +426,7 @@
 </div>
 
 <script>
+// Перелистывание страниц
 function turnPage(pageId, direction) {
   const page = document.getElementById('p' + pageId);
   
@@ -450,6 +450,7 @@ function turnPage(pageId, direction) {
   }
 }
 
+// Закрытие книги (возврат на обложку)
 function closeBook() {
   [1, 2, 3, 4, 5].forEach(i => {
     const page = document.getElementById('p' + i);

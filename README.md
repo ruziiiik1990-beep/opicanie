@@ -302,7 +302,7 @@
       </div>
     </div>
 
-    <!-- СТРАНИЦА 3: ПРИЗЫ -->
+    <!-- СТРАНИЦА 3: ПРИЗЫ (ТЕКСТ СПРАВА, ГИФКА 3 СЛЕВА) -->
     <div class="b-page paper-page" id="p3" style="z-index: 3;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -317,11 +317,16 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
+        <!-- НОВАЯ ГИФКА ДЛЯ ПРИЗОВ -->
+        <div class="gif-container">
+          <img src="https://4ak4ak.moy.su/gif/20261026_InexpensiveBlueSquirrelNotATK-tmAsxdSkeHp.gif" class="page-gif" alt="Призы">
+          <div class="gif-caption">Ценные призы ждут победителей!</div>
+        </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(3, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 2: АНТИЧИТ (ТЕКСТ СПРАВА, ГИФКА 1 СЛЕВА) -->
+    <!-- СТРАНИЦА 2: АНТИЧИТ (ТЕКСТ СПРАВА, ПЕРВАЯ ГИФКА СЛЕВА) -->
     <div class="b-page paper-page" id="p2" style="z-index: 4;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -335,7 +340,7 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- Гифка для страницы Античита -->
+        <!-- ПЕРВАЯ ГИФКА ВОЗВРАЩЕНА СЮДА -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
           <div class="gif-caption">Следи за статусом античита!</div>
@@ -346,7 +351,6 @@
 
     <!-- СТРАНИЦА 1: ОБЩИЕ ПРАВИЛА (ТЕКСТ СПРАВА, ГИФКА 2 СЛЕВА) -->
     <div class="b-page paper-page" id="p1" style="z-index: 5;">
-      <!-- Правая сторона: Текст правил -->
       <div class="page-side front-side">
         <div class="text-box">
           <h3>📝 Основные правила</h3>
@@ -359,10 +363,10 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
       </div>
       
-      <!-- Левая сторона: НОВАЯ ГИФКА -->
       <div class="page-side back-side">
+        <!-- ВТОРАЯ ГИФКА (SDSD) -->
         <div class="gif-container">
-          <img src="https://4ak4ak.moy.su/gif/20261026_EnticingDullDunlinSpicyBoy-6IwYWLeAQcwSlN.gif" class="page-gif" alt="Правила">
+          <img src="https://4ak4ak.moy.su/gif/sdsd.gif" class="page-gif" alt="Правила">
           <div class="gif-caption">Играй честно и побеждай!</div>
         </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(1, 'prev')">↩ Назад</button>

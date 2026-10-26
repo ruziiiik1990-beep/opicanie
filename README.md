@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ru" style="background: transparent !important;">
 <head>
   <meta charset="UTF-8">

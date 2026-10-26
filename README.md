@@ -23,22 +23,24 @@
     }
     
     .book-viewport {
-      perspective: 2500px; /* Увеличил перспективу для большей книги */
+      perspective: 2500px;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 30px 0;
+      padding: 40px 0;
       background: transparent !important;
       min-height: 100vh;
+      /* Добавил отступ слева, чтобы при открытии книга не улетала за край */
+      padding-left: 20%; 
     }
     
     .book-wrapper {
       position: relative;
-      /* УВЕЛИЧЕНИЕ: Ширина +30% (было 380), Высота +10% (было 520) */
       width: 494px; 
       height: 572px;
       transform-style: preserve-3d;
-      transform: rotateX(15deg) rotateY(-5deg);
+      /* Сдвиг вправо (translateX) и масштаб (scale) */
+      transform: translateX(15%) scale(1.05) rotateX(15deg) rotateY(-5deg);
     }
     
     .b-page {
@@ -91,14 +93,14 @@
     .back-cover-text {
       color: #D4AF37;
       font-family: 'Georgia', serif;
-      font-size: 26px; /* Увеличил шрифт */
+      font-size: 26px;
       line-height: 1.5;
       font-weight: bold;
       margin-bottom: 25px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .back-cover-logo {
-      width: 150px; /* Увеличил логотип */
+      width: 150px;
       height: 150px;
       border-radius: 50%;
       border: 3px solid #D4AF37;
@@ -118,7 +120,7 @@
     }
     .cover-design h2 {
       font-family: 'Georgia', serif;
-      font-size: 32px; /* Увеличил шрифт */
+      font-size: 32px;
       letter-spacing: 4px;
       margin: 0;
     }
@@ -140,7 +142,7 @@
     }
     
     .front-cover-logo {
-      width: 100px; /* Увеличил логотип */
+      width: 100px;
       height: 100px;
       border-radius: 50%;
       border: 2px solid #D4AF37;
@@ -196,9 +198,9 @@
       border: 1px solid #e8dec9;
     }
     .text-box {
-      padding: 55px 35px 35px 55px; /* Увеличил отступы */
+      padding: 55px 35px 35px 55px;
       font-family: sans-serif;
-      font-size: 15px; /* Увеличил шрифт */
+      font-size: 15px;
       line-height: 1.7;
     }
     .text-box h3 {
@@ -207,38 +209,46 @@
       border-bottom: 2px solid #e8dec9;
       padding-bottom: 10px;
       margin-top: 0;
-      font-size: 22px; /* Увеличил заголовок */
+      font-size: 22px;
     }
     .text-box ul { padding-left: 20px; margin: 0; }
     .text-box li { margin-bottom: 15px; }
     
-    /* Стили для гифок */
+    /* СТИЛИ ДЛЯ ГИФОК: ТЕПЕРЬ НА ВСЮ СТРАНИЦУ */
     .gif-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100%;
-      padding: 25px;
+      width: 100%;
+      padding: 0; /* Убрали отступы, чтобы гифка была в край */
       box-sizing: border-box;
+      position: relative;
     }
     .page-gif {
       width: 100%;
-      max-width: 100%;
-      max-height: 420px; /* Увеличил максимальную высоту */
-      object-fit: contain;
-      border-radius: 10px;
-      border: 2px solid #e8dec9;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      margin-bottom: 25px;
+      height: 100%;
+      object-fit: cover; /* Гифка заполняет всё пространство без искажений */
+      border-radius: 16px 4px 4px 16px; /* Скругляем только левую сторону */
+      border: none;
+      margin: 0;
     }
     .gif-caption {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
       font-family: 'Georgia', serif;
-      color: #8B0000;
-      font-size: 18px; /* Увеличил подпись */
+      font-size: 16px;
       font-weight: bold;
       text-align: center;
-      font-style: italic;
+      width: 80%;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
 
     .small-text-note {
@@ -286,7 +296,7 @@
     .intro-page h2 {
       border: none;
       color: #8B0000;
-      font-size: 38px; /* Увеличил заголовок */
+      font-size: 38px;
       font-family: 'Georgia', serif;
       margin-bottom: 25px;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);

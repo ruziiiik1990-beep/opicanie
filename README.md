@@ -187,7 +187,7 @@
       z-index: 10;
     }
     .next-arrow { right: 20px; }
-    .prev-arrow { left: 20px; } /* Сдвинул немного для левой страницы */
+    .prev-arrow { left: 20px; }
     
     .paper-page {
       background: #fcf8f2;
@@ -219,10 +219,13 @@
       align-items: center;
       height: 100%;
       padding: 20px;
+      box-sizing: border-box; /* Чтобы padding не увеличивал размер */
     }
     .page-gif {
       width: 100%;
-      max-width: 280px;
+      max-width: 100%; /* Гифка не выйдет за рамки */
+      max-height: 380px; /* Ограничиваем высоту, чтобы влезла */
+      object-fit: contain; /* Сохраняем пропорции */
       border-radius: 8px;
       border: 2px solid #e8dec9;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -314,13 +317,13 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
+        <!-- Задняя сторона 3-й страницы (пустая, просто для перелистывания) -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(3, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 2: АНТИЧИТ -->
+    <!-- СТРАНИЦА 2: АНТИЧИТ (ТЕКСТ СПРАВА) -->
     <div class="b-page paper-page" id="p2" style="z-index: 4;">
-      <!-- Правая сторона (текст) -->
       <div class="page-side front-side">
         <div class="text-box">
           <h3>🛡️ Anti-cheat и Старт</h3>
@@ -332,19 +335,15 @@
         </div>
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
-      
-      <!-- Левая сторона (ГИФКА) -->
       <div class="page-side back-side">
-        <div class="gif-container">
-          <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
-          <div class="gif-caption">Следи за статусом античита!</div>
-        </div>
+        <!-- Задняя сторона 2-й страницы (пустая) -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(2, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 1: ОБЩИЕ ПРАВИЛА -->
+    <!-- СТРАНИЦА 1: ОБЩИЕ ПРАВИЛА (СПРАВА ТЕКСТ, СЛЕВА ГИФКА) -->
     <div class="b-page paper-page" id="p1" style="z-index: 5;">
+      <!-- Правая сторона: Текст правил -->
       <div class="page-side front-side">
         <div class="text-box">
           <h3>📝 Основные правила</h3>
@@ -356,7 +355,13 @@
         </div>
         <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
       </div>
+      
+      <!-- Левая сторона: ГИФКА (открывается, когда листаем с 1-й страницы) -->
       <div class="page-side back-side">
+        <div class="gif-container">
+          <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
+          <div class="gif-caption">Следи за статусом античита!</div>
+        </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(1, 'prev')">↩ Назад</button>
       </div>
     </div>

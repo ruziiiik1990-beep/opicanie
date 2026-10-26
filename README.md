@@ -186,6 +186,7 @@
     }
     .next-arrow { right: 20px; }
     .prev-arrow { left: 40px; }
+    
     .paper-page {
       background: #fcf8f2;
       color: #2b2b2b;
@@ -255,7 +256,7 @@
       <img src="https://4ak4ak.moy.su/logo1.jpg" class="back-cover-logo" alt="Чак-Чак">
     </div>
     
-    <!-- СТРАНИЦА 4: СПАСИБО (Внутри книги) -->
+    <!-- СТРАНИЦА 4: СПАСИБО -->
     <div class="b-page paper-page thanks-page" id="p4" style="z-index: 2;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -263,6 +264,9 @@
           <p>Желаем удачи в турнире и только побед!</p>
           <button class="open-book-btn" onclick="closeBook()">Закрыть книгу 📕</button>
         </div>
+      </div>
+      <!-- Задняя сторона 4-й страницы (пустая, чтобы при перевороте не было пустоты) -->
+      <div class="page-side back-side">
         <button class="nav-arrow prev-arrow" onclick="turnPage(4, 'prev')">↩ Назад</button>
       </div>
     </div>
@@ -280,6 +284,8 @@
           <p class="small-text-note">Турнир создан ради эмоций и символических призов!</p>
         </div>
         <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
+      </div>
+      <div class="page-side back-side">
         <button class="nav-arrow prev-arrow" onclick="turnPage(3, 'prev')">↩ Назад</button>
       </div>
     </div>
@@ -350,10 +356,9 @@ function turnPage(pageId, direction) {
       document.getElementById('backToStartBtn').style.display = 'inline-block';
     }
   } else if (direction === 'prev') {
-    // ПОДНИМАЕМ страницу наверх, чтобы она перевернулась ПОВЕРХ остальных
+    // Поднимаем страницу наверх, чтобы она перевернулась поверх остальных
     page.style.zIndex = 100; 
     
-    // Небольшая задержка, чтобы браузер применил z-index, и запускаем анимацию
     setTimeout(() => {
       page.classList.remove('flipped');
     }, 10);
@@ -364,18 +369,16 @@ function turnPage(pageId, direction) {
       else if (pageId === 2) page.style.zIndex = 4;
       else if (pageId === 3) page.style.zIndex = 3;
       else if (pageId === 4) page.style.zIndex = 2;
-    }, 800); // 800мс — это время анимации
+    }, 800); 
   }
 }
 
 // Закрытие книги (возврат на обложку)
 function closeBook() {
-  // Переворачиваем страницы 1, 2, 3, 4 обратно
   [1, 2, 3, 4].forEach(i => {
     const page = document.getElementById('p' + i);
     if (page) {
       page.classList.remove('flipped');
-      // Возвращаем z-index
       if (i === 1) page.style.zIndex = 5;
       else if (i === 2) page.style.zIndex = 4;
       else if (i === 3) page.style.zIndex = 3;
@@ -383,14 +386,12 @@ function closeBook() {
     }
   });
   
-  // Закрываем переднюю обложку
   const p0 = document.getElementById('p0');
   setTimeout(() => {
     p0.classList.remove('flipped');
     p0.style.zIndex = 6;
   }, 100);
 
-  // Скрываем кнопку "Вернуться на обложку"
   document.getElementById('backToStartBtn').style.display = 'none';
 }
 </script>

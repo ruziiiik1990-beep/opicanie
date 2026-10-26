@@ -3,13 +3,24 @@
   <meta charset="UTF-8">
   <title>Правила</title>
   <style>
-    /* Убиваем любые фоны, отступы и надписи темы GitHub на корню */
+    /* СКРЫВАЕМ ЗАГОЛОВКИ GITHUB PAGES */
+    #header, header, h1, .header, a[href*="rules"], a[href*="steamID"], .page-header, .project-name, .project-tagline {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Убираем overflow: hidden, чтобы книга не обрезалась */
     html, body {
       margin: 0;
       padding: 0;
       background: transparent !important;
       background-color: transparent !important;
-      overflow: hidden;
+      overflow-y: auto; /* Разрешаем прокрутку */
+      overflow-x: hidden;
     }
     
     /* Базовые стили для книги со стрелками */
@@ -20,6 +31,7 @@
       align-items: center;
       padding: 20px 0;
       background: transparent !important;
+      min-height: 100vh; /* Гарантируем, что контейнер займет всю высоту */
     }
     .book-wrapper {
       position: relative;

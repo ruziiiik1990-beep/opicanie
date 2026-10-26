@@ -209,7 +209,7 @@
     .text-box ul { padding-left: 15px; margin: 0; }
     .text-box li { margin-bottom: 12px; }
     
-    /* Стили для гифок на левой странице */
+    /* Стили для гифок */
     .gif-container {
       display: flex;
       flex-direction: column;
@@ -248,7 +248,29 @@
       padding-top: 10px;
     }
     
-    /* Стили для страницы-заставки "Читай внимательно" */
+    /* Страница "Спасибо" */
+    .thanks-page .text-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      padding: 30px;
+    }
+    .thanks-page h3 {
+      border: none;
+      color: #8B0000;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .thanks-page p {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    
+    /* Страница-заставка "Читай внимательно" */
     .intro-page .text-box {
       display: flex;
       flex-direction: column;
@@ -272,28 +294,6 @@
       font-style: italic;
     }
 
-    /* Страница "Спасибо" */
-    .thanks-page .text-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      text-align: center;
-      padding: 30px;
-    }
-    .thanks-page h3 {
-      border: none;
-      color: #8B0000;
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-    .thanks-page p {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 30px;
-    }
-    
     .b-page.flipped {
       transform: rotateY(-180deg);
     }
@@ -324,7 +324,7 @@
       </div>
     </div>
 
-    <!-- СТРАНИЦА 4: ПРИЗЫ (ТЕКСТ СПРАВА) -->
+    <!-- СТРАНИЦА 4: ПРИЗЫ -->
     <div class="b-page paper-page" id="p4" style="z-index: 3;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -339,16 +339,12 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(4, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ГИФКА ДЛЯ ПРИЗОВ -->
-        <div class="gif-container">
-          <img src="https://4ak4ak.moy.su/gif/20261026_InexpensiveBlueSquirrelNotATK-tmAsxdSkeHp.gif" class="page-gif" alt="Призы">
-          <div class="gif-caption">Ценные призы ждут победителей!</div>
-        </div>
+        <!-- ПУСТАЯ ЗАДНЯЯ СТОРОНА -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(4, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 3: АНТИЧИТ (ТЕКСТ СПРАВА) -->
+    <!-- СТРАНИЦА 3: АНТИЧИТ -->
     <div class="b-page paper-page" id="p3" style="z-index: 4;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -362,16 +358,16 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ГИФКА ПРО АНТИЧИТ -->
+        <!-- ГИФКА ДЛЯ ПРИЗОВ (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
         <div class="gif-container">
-          <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
-          <div class="gif-caption">Следи за статусом античита!</div>
+          <img src="https://4ak4ak.moy.su/gif/20261026_InexpensiveBlueSquirrelNotATK-tmAsxdSkeHp.gif" class="page-gif" alt="Призы">
+          <div class="gif-caption">Ценные призы ждут победителей!</div>
         </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(3, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 2: ОСНОВНЫЕ ПРАВИЛА (ТЕКСТ СПРАВА) -->
+    <!-- СТРАНИЦА 2: ОСНОВНЫЕ ПРАВИЛА -->
     <div class="b-page paper-page" id="p2" style="z-index: 5;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -385,16 +381,16 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ГИФКА SDSD ДЛЯ ПРАВИЛ -->
+        <!-- ГИФКА ПРО АНТИЧИТ (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
         <div class="gif-container">
-          <img src="https://4ak4ak.moy.su/gif/sdsd.gif" class="page-gif" alt="Правила">
-          <div class="gif-caption">Играй честно и побеждай!</div>
+          <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
+          <div class="gif-caption">Следи за статусом античита!</div>
         </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(2, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 1: ЗАСТАВКА "ЧИТАЙ ВНИМАТЕЛЬНО" (НОВАЯ) -->
+    <!-- СТРАНИЦА 1: ЗАСТАВКА "ЧИТАЙ ВНИМАТЕЛЬНО" -->
     <div class="b-page paper-page intro-page" id="p1" style="z-index: 6;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -404,6 +400,11 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
+        <!-- ГИФКА SDSD (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
+        <div class="gif-container">
+          <img src="https://4ak4ak.moy.su/gif/sdsd.gif" class="page-gif" alt="Правила">
+          <div class="gif-caption">Играй честно и побеждай!</div>
+        </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(1, 'prev')">↩ Назад</button>
       </div>
     </div>
@@ -426,7 +427,6 @@
 </div>
 
 <script>
-// Перелистывание страниц
 function turnPage(pageId, direction) {
   const page = document.getElementById('p' + pageId);
   
@@ -450,7 +450,6 @@ function turnPage(pageId, direction) {
   }
 }
 
-// Закрытие книги (возврат на обложку)
 function closeBook() {
   [1, 2, 3, 4, 5].forEach(i => {
     const page = document.getElementById('p' + i);

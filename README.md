@@ -61,7 +61,9 @@
     }
     .back-side {
       transform: rotateY(180deg);
-      background: #f5edd6;
+      background: #fcf8f2; /* Цвет бумаги для левой стороны */
+      border-radius: 12px 4px 4px 12px; /* Закругление для левой стороны */
+      border: 1px solid #e8dec9;
     }
     
     /* ПЕРЕДНЯЯ ОБЛОЖКА */
@@ -185,7 +187,7 @@
       z-index: 10;
     }
     .next-arrow { right: 20px; }
-    .prev-arrow { left: 40px; }
+    .prev-arrow { left: 20px; } /* Сдвинул немного для левой страницы */
     
     .paper-page {
       background: #fcf8f2;
@@ -208,6 +210,33 @@
     }
     .text-box ul { padding-left: 15px; margin: 0; }
     .text-box li { margin-bottom: 12px; }
+    
+    /* Стили для гифки на левой странице */
+    .gif-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 20px;
+    }
+    .page-gif {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 8px;
+      border: 2px solid #e8dec9;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    .gif-caption {
+      font-family: 'Georgia', serif;
+      color: #8B0000;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      font-style: italic;
+    }
+
     .small-text-note {
       font-style: italic;
       font-size: 11px;
@@ -265,7 +294,6 @@
           <button class="open-book-btn" onclick="closeBook()">Закрыть книгу 📕</button>
         </div>
       </div>
-      <!-- Задняя сторона 4-й страницы (пустая, чтобы при перевороте не было пустоты) -->
       <div class="page-side back-side">
         <button class="nav-arrow prev-arrow" onclick="turnPage(4, 'prev')">↩ Назад</button>
       </div>
@@ -292,6 +320,7 @@
 
     <!-- СТРАНИЦА 2: АНТИЧИТ -->
     <div class="b-page paper-page" id="p2" style="z-index: 4;">
+      <!-- Правая сторона (текст) -->
       <div class="page-side front-side">
         <div class="text-box">
           <h3>🛡️ Anti-cheat и Старт</h3>
@@ -303,7 +332,13 @@
         </div>
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
+      
+      <!-- Левая сторона (ГИФКА) -->
       <div class="page-side back-side">
+        <div class="gif-container">
+          <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
+          <div class="gif-caption">Следи за статусом античита!</div>
+        </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(2, 'prev')">↩ Назад</button>
       </div>
     </div>

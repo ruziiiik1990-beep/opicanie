@@ -27,21 +27,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* ДОБАВИЛ ПАДДИНГ, ЧТОБЫ КНИГА НЕ ОБРЕЗАЛАСЬ ПО КРАЯМ */
-      padding: 60px 40px; 
+      padding: 40px 0;
       background: transparent !important;
       min-height: 100vh;
-      box-sizing: border-box;
     }
     
     .book-wrapper {
       position: relative;
-      /* Вернул базовые размеры */
-      width: 494px; 
+      /* УВЕЛИЧЕНИЕ: Ширина теперь 593px, высота 572px */
+      width: 593px; 
       height: 572px;
       transform-style: preserve-3d;
-      /* УВЕЛИЧИВАЕМ ВИЗУАЛЬНО НА 10% ПРЯМО ЗДЕСЬ */
-      transform: scale(1.1) rotateX(15deg) rotateY(-5deg);
+      transform: rotateX(15deg) rotateY(-5deg);
     }
     
     .b-page {
@@ -94,15 +91,15 @@
     .back-cover-text {
       color: #D4AF37;
       font-family: 'Georgia', serif;
-      font-size: 26px;
+      font-size: 28px;
       line-height: 1.5;
       font-weight: bold;
       margin-bottom: 25px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .back-cover-logo {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       border: 3px solid #D4AF37;
       object-fit: cover;
@@ -121,22 +118,22 @@
     }
     .cover-design h2 {
       font-family: 'Georgia', serif;
-      font-size: 34px;
+      font-size: 36px;
       letter-spacing: 4px;
       margin: 0;
     }
     .gold-badge {
       background: #D4AF37;
       color: #4A0000;
-      padding: 8px 25px;
+      padding: 10px 30px;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 20px;
       margin: 20px 0;
       border-radius: 6px;
       letter-spacing: 2px;
     }
     .cover-design p {
-      font-size: 15px;
+      font-size: 16px;
       color: #f0e6d2;
       font-style: italic;
       margin-bottom: 20px;
@@ -156,8 +153,8 @@
       background: #D4AF37;
       color: #4A0000;
       border: none;
-      padding: 12px 24px;
-      font-size: 15px;
+      padding: 14px 28px;
+      font-size: 16px;
       font-weight: bold;
       border-radius: 25px;
       cursor: pointer;
@@ -199,9 +196,9 @@
       border: 1px solid #e8dec9;
     }
     .text-box {
-      padding: 55px 40px 35px 55px;
+      padding: 55px 45px 35px 55px; /* Увеличил отступы для широкой книги */
       font-family: sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.7;
     }
     .text-box h3 {
@@ -210,7 +207,7 @@
       border-bottom: 2px solid #e8dec9;
       padding-bottom: 10px;
       margin-top: 0;
-      font-size: 22px;
+      font-size: 24px;
     }
     .text-box ul { padding-left: 20px; margin: 0; }
     .text-box li { margin-bottom: 15px; }
@@ -222,13 +219,13 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      padding: 25px;
+      padding: 30px;
       box-sizing: border-box;
     }
     .page-gif {
       width: 100%;
       max-width: 100%;
-      max-height: 400px;
+      max-height: 400px; /* Ограничил, чтобы не вылезала по высоте */
       object-fit: contain;
       border-radius: 10px;
       border: 2px solid #e8dec9;
@@ -238,7 +235,7 @@
     .gif-caption {
       font-family: 'Georgia', serif;
       color: #8B0000;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
       text-align: center;
       font-style: italic;
@@ -246,7 +243,7 @@
 
     .small-text-note {
       font-style: italic;
-      font-size: 13px;
+      font-size: 14px;
       color: #777;
       margin-top: 30px;
       text-align: center;
@@ -267,11 +264,11 @@
     .thanks-page h3 {
       border: none;
       color: #8B0000;
-      font-size: 28px;
+      font-size: 32px;
       margin-bottom: 20px;
     }
     .thanks-page p {
-      font-size: 18px;
+      font-size: 20px;
       color: #333;
       margin-bottom: 40px;
     }
@@ -289,13 +286,13 @@
     .intro-page h2 {
       border: none;
       color: #8B0000;
-      font-size: 38px;
+      font-size: 42px;
       font-family: 'Georgia', serif;
       margin-bottom: 25px;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     .intro-page p {
-      font-size: 20px;
+      font-size: 22px;
       color: #555;
       font-style: italic;
     }

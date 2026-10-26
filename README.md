@@ -61,8 +61,8 @@
     }
     .back-side {
       transform: rotateY(180deg);
-      background: #fcf8f2; /* Цвет бумаги для левой стороны */
-      border-radius: 12px 4px 4px 12px; /* Закругление для левой стороны */
+      background: #fcf8f2;
+      border-radius: 12px 4px 4px 12px;
       border: 1px solid #e8dec9;
     }
     
@@ -211,7 +211,7 @@
     .text-box ul { padding-left: 15px; margin: 0; }
     .text-box li { margin-bottom: 12px; }
     
-    /* Стили для гифки на левой странице */
+    /* Стили для гифок на левой странице */
     .gif-container {
       display: flex;
       flex-direction: column;
@@ -219,13 +219,13 @@
       align-items: center;
       height: 100%;
       padding: 20px;
-      box-sizing: border-box; /* Чтобы padding не увеличивал размер */
+      box-sizing: border-box;
     }
     .page-gif {
       width: 100%;
-      max-width: 100%; /* Гифка не выйдет за рамки */
-      max-height: 380px; /* Ограничиваем высоту, чтобы влезла */
-      object-fit: contain; /* Сохраняем пропорции */
+      max-width: 100%;
+      max-height: 380px;
+      object-fit: contain;
       border-radius: 8px;
       border: 2px solid #e8dec9;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -317,12 +317,11 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- Задняя сторона 3-й страницы (пустая, просто для перелистывания) -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(3, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 2: АНТИЧИТ (ТЕКСТ СПРАВА) -->
+    <!-- СТРАНИЦА 2: АНТИЧИТ (ТЕКСТ СПРАВА, ГИФКА 1 СЛЕВА) -->
     <div class="b-page paper-page" id="p2" style="z-index: 4;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -336,12 +335,16 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- Задняя сторона 2-й страницы (пустая) -->
+        <!-- Гифка для страницы Античита -->
+        <div class="gif-container">
+          <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
+          <div class="gif-caption">Следи за статусом античита!</div>
+        </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(2, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 1: ОБЩИЕ ПРАВИЛА (СПРАВА ТЕКСТ, СЛЕВА ГИФКА) -->
+    <!-- СТРАНИЦА 1: ОБЩИЕ ПРАВИЛА (ТЕКСТ СПРАВА, ГИФКА 2 СЛЕВА) -->
     <div class="b-page paper-page" id="p1" style="z-index: 5;">
       <!-- Правая сторона: Текст правил -->
       <div class="page-side front-side">
@@ -356,11 +359,11 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
       </div>
       
-      <!-- Левая сторона: ГИФКА (открывается, когда листаем с 1-й страницы) -->
+      <!-- Левая сторона: НОВАЯ ГИФКА -->
       <div class="page-side back-side">
         <div class="gif-container">
-          <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
-          <div class="gif-caption">Следи за статусом античита!</div>
+          <img src="https://4ak4ak.moy.su/gif/20261026_EnticingDullDunlinSpicyBoy-6IwYWLeAQcwSlN.gif" class="page-gif" alt="Правила">
+          <div class="gif-caption">Играй честно и побеждай!</div>
         </div>
         <button class="nav-arrow prev-arrow" onclick="turnPage(1, 'prev')">↩ Назад</button>
       </div>

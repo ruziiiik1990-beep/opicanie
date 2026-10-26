@@ -23,19 +23,19 @@
     }
     
     .book-viewport {
-      perspective: 3000px; 
+      perspective: 2500px; /* Увеличил перспективу для большей книги */
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px 0;
+      padding: 30px 0;
       background: transparent !important;
       min-height: 100vh;
     }
     
     .book-wrapper {
       position: relative;
-      /* УВЕЛИЧЕНИЕ: Ширина теперь 593px, высота 572px */
-      width: 593px; 
+      /* УВЕЛИЧЕНИЕ: Ширина +30% (было 380), Высота +10% (было 520) */
+      width: 494px; 
       height: 572px;
       transform-style: preserve-3d;
       transform: rotateX(15deg) rotateY(-5deg);
@@ -72,14 +72,14 @@
     /* ПЕРЕДНЯЯ ОБЛОЖКА */
     .front-cover-page {
       background: linear-gradient(135deg, #8B0000 0%, #4A0000 100%);
-      border-left: 12px solid #2A0000;
+      border-left: 10px solid #2A0000;
       border: 2px solid #5A0000;
     }
     
     /* ЗАДНЯЯ ОБЛОЖКА */
     .back-cover-page {
       background: linear-gradient(135deg, #4A0000 0%, #2A0000 100%);
-      border-left: 12px solid #1A0000;
+      border-left: 10px solid #1A0000;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -91,14 +91,14 @@
     .back-cover-text {
       color: #D4AF37;
       font-family: 'Georgia', serif;
-      font-size: 28px;
+      font-size: 26px; /* Увеличил шрифт */
       line-height: 1.5;
       font-weight: bold;
       margin-bottom: 25px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .back-cover-logo {
-      width: 150px;
+      width: 150px; /* Увеличил логотип */
       height: 150px;
       border-radius: 50%;
       border: 3px solid #D4AF37;
@@ -118,29 +118,29 @@
     }
     .cover-design h2 {
       font-family: 'Georgia', serif;
-      font-size: 36px;
+      font-size: 32px; /* Увеличил шрифт */
       letter-spacing: 4px;
       margin: 0;
     }
     .gold-badge {
       background: #D4AF37;
       color: #4A0000;
-      padding: 10px 30px;
+      padding: 8px 25px;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 18px;
       margin: 20px 0;
       border-radius: 6px;
       letter-spacing: 2px;
     }
     .cover-design p {
-      font-size: 16px;
+      font-size: 15px;
       color: #f0e6d2;
       font-style: italic;
       margin-bottom: 20px;
     }
     
     .front-cover-logo {
-      width: 100px;
+      width: 100px; /* Увеличил логотип */
       height: 100px;
       border-radius: 50%;
       border: 2px solid #D4AF37;
@@ -153,8 +153,8 @@
       background: #D4AF37;
       color: #4A0000;
       border: none;
-      padding: 14px 28px;
-      font-size: 16px;
+      padding: 12px 24px;
+      font-size: 15px;
       font-weight: bold;
       border-radius: 25px;
       cursor: pointer;
@@ -196,9 +196,9 @@
       border: 1px solid #e8dec9;
     }
     .text-box {
-      padding: 55px 45px 35px 55px; /* Увеличил отступы для широкой книги */
+      padding: 55px 35px 35px 55px; /* Увеличил отступы */
       font-family: sans-serif;
-      font-size: 16px;
+      font-size: 15px; /* Увеличил шрифт */
       line-height: 1.7;
     }
     .text-box h3 {
@@ -207,7 +207,7 @@
       border-bottom: 2px solid #e8dec9;
       padding-bottom: 10px;
       margin-top: 0;
-      font-size: 24px;
+      font-size: 22px; /* Увеличил заголовок */
     }
     .text-box ul { padding-left: 20px; margin: 0; }
     .text-box li { margin-bottom: 15px; }
@@ -219,13 +219,13 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      padding: 30px;
+      padding: 25px;
       box-sizing: border-box;
     }
     .page-gif {
       width: 100%;
       max-width: 100%;
-      max-height: 400px; /* Ограничил, чтобы не вылезала по высоте */
+      max-height: 420px; /* Увеличил максимальную высоту */
       object-fit: contain;
       border-radius: 10px;
       border: 2px solid #e8dec9;
@@ -235,7 +235,7 @@
     .gif-caption {
       font-family: 'Georgia', serif;
       color: #8B0000;
-      font-size: 20px;
+      font-size: 18px; /* Увеличил подпись */
       font-weight: bold;
       text-align: center;
       font-style: italic;
@@ -243,7 +243,7 @@
 
     .small-text-note {
       font-style: italic;
-      font-size: 14px;
+      font-size: 13px;
       color: #777;
       margin-top: 30px;
       text-align: center;
@@ -264,11 +264,11 @@
     .thanks-page h3 {
       border: none;
       color: #8B0000;
-      font-size: 32px;
+      font-size: 28px;
       margin-bottom: 20px;
     }
     .thanks-page p {
-      font-size: 20px;
+      font-size: 18px;
       color: #333;
       margin-bottom: 40px;
     }
@@ -286,13 +286,13 @@
     .intro-page h2 {
       border: none;
       color: #8B0000;
-      font-size: 42px;
+      font-size: 38px; /* Увеличил заголовок */
       font-family: 'Georgia', serif;
       margin-bottom: 25px;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     .intro-page p {
-      font-size: 22px;
+      font-size: 20px;
       color: #555;
       font-style: italic;
     }

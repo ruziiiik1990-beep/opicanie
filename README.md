@@ -209,6 +209,7 @@
     .text-box ul { padding-left: 15px; margin: 0; }
     .text-box li { margin-bottom: 12px; }
     
+    /* Стили для гифок на левой странице */
     .gif-container {
       display: flex;
       flex-direction: column;
@@ -247,6 +248,31 @@
       padding-top: 10px;
     }
     
+    /* Стили для страницы-заставки "Читай внимательно" */
+    .intro-page .text-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      padding: 30px;
+    }
+    .intro-page h2 {
+      border: none;
+      color: #8B0000;
+      font-size: 32px;
+      font-family: 'Georgia', serif;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .intro-page p {
+      font-size: 18px;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* Страница "Спасибо" */
     .thanks-page .text-box {
       display: flex;
       flex-direction: column;
@@ -284,8 +310,8 @@
       <img src="https://4ak4ak.moy.su/logo1.jpg" class="back-cover-logo" alt="Чак-Чак">
     </div>
     
-    <!-- СТРАНИЦА 4: СПАСИБО -->
-    <div class="b-page paper-page thanks-page" id="p4" style="z-index: 2;">
+    <!-- СТРАНИЦА 5: СПАСИБО -->
+    <div class="b-page paper-page thanks-page" id="p5" style="z-index: 2;">
       <div class="page-side front-side">
         <div class="text-box">
           <h3>Спасибо за прочтение!</h3>
@@ -294,12 +320,12 @@
         </div>
       </div>
       <div class="page-side back-side">
-        <button class="nav-arrow prev-arrow" onclick="turnPage(4, 'prev')">↩ Назад</button>
+        <button class="nav-arrow prev-arrow" onclick="turnPage(5, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 3: ПРИЗЫ (ТЕКСТ СПРАВА) -->
-    <div class="b-page paper-page" id="p3" style="z-index: 3;">
+    <!-- СТРАНИЦА 4: ПРИЗЫ (ТЕКСТ СПРАВА) -->
+    <div class="b-page paper-page" id="p4" style="z-index: 3;">
       <div class="page-side front-side">
         <div class="text-box">
           <h3>🏆 Призы и Рейтинг</h3>
@@ -310,20 +336,20 @@
           </ul>
           <p class="small-text-note">Турнир создан ради эмоций и символических призов!</p>
         </div>
-        <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
+        <button class="nav-arrow next-arrow" onclick="turnPage(4, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ГИФКА ДЛЯ ПРИЗОВ (появится, когда откроется страница 3) -->
+        <!-- ГИФКА ДЛЯ ПРИЗОВ -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_InexpensiveBlueSquirrelNotATK-tmAsxdSkeHp.gif" class="page-gif" alt="Призы">
           <div class="gif-caption">Ценные призы ждут победителей!</div>
         </div>
-        <button class="nav-arrow prev-arrow" onclick="turnPage(3, 'prev')">↩ Назад</button>
+        <button class="nav-arrow prev-arrow" onclick="turnPage(4, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 2: АНТИЧИТ (ТЕКСТ СПРАВА) -->
-    <div class="b-page paper-page" id="p2" style="z-index: 4;">
+    <!-- СТРАНИЦА 3: АНТИЧИТ (ТЕКСТ СПРАВА) -->
+    <div class="b-page paper-page" id="p3" style="z-index: 4;">
       <div class="page-side front-side">
         <div class="text-box">
           <h3>🛡️ Anti-cheat и Старт</h3>
@@ -333,20 +359,20 @@
             <li><b>Залив файла анти-чита:</b> После игры найдите в «Моих документах» файл <b>match_log</b> и загрузите его через <b>желтый плюс</b> в противостоянии матча.</li>
           </ul>
         </div>
-        <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
+        <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ПЕРВАЯ ГИФКА ПРО АНТИЧИТ -->
+        <!-- ГИФКА ПРО АНТИЧИТ -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
           <div class="gif-caption">Следи за статусом античита!</div>
         </div>
-        <button class="nav-arrow prev-arrow" onclick="turnPage(2, 'prev')">↩ Назад</button>
+        <button class="nav-arrow prev-arrow" onclick="turnPage(3, 'prev')">↩ Назад</button>
       </div>
     </div>
 
-    <!-- СТРАНИЦА 1: ОБЩИЕ ПРАВИЛА (ТЕКСТ СПРАВА) -->
-    <div class="b-page paper-page" id="p1" style="z-index: 5;">
+    <!-- СТРАНИЦА 2: ОСНОВНЫЕ ПРАВИЛА (ТЕКСТ СПРАВА) -->
+    <div class="b-page paper-page" id="p2" style="z-index: 5;">
       <div class="page-side front-side">
         <div class="text-box">
           <h3>📝 Основные правила</h3>
@@ -356,21 +382,34 @@
             <li><b>Рандом:</b> Участники распределяются по командам случайно. Победители этапа снова перемешиваются в новые команды для следующей стадии.</li>
           </ul>
         </div>
-        <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
+        <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
-      
       <div class="page-side back-side">
-        <!-- ГИФКА SDSD ДЛЯ ПЕРВОЙ СТРАНИЦЫ -->
+        <!-- ГИФКА SDSD ДЛЯ ПРАВИЛ -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/sdsd.gif" class="page-gif" alt="Правила">
           <div class="gif-caption">Играй честно и побеждай!</div>
         </div>
+        <button class="nav-arrow prev-arrow" onclick="turnPage(2, 'prev')">↩ Назад</button>
+      </div>
+    </div>
+
+    <!-- СТРАНИЦА 1: ЗАСТАВКА "ЧИТАЙ ВНИМАТЕЛЬНО" (НОВАЯ) -->
+    <div class="b-page paper-page intro-page" id="p1" style="z-index: 6;">
+      <div class="page-side front-side">
+        <div class="text-box">
+          <h2>Читай<br>внимательно!</h2>
+          <p>Здесь собраны все важные правила турнира.</p>
+        </div>
+        <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
+      </div>
+      <div class="page-side back-side">
         <button class="nav-arrow prev-arrow" onclick="turnPage(1, 'prev')">↩ Назад</button>
       </div>
     </div>
 
     <!-- ПЕРЕДНЯЯ ОБЛОЖКА -->
-    <div class="b-page front-cover-page" id="p0" style="z-index: 6;">
+    <div class="b-page front-cover-page" id="p0" style="z-index: 7;">
       <div class="page-side front-side">
         <div class="cover-design">
           <img src="https://4ak4ak.moy.su/logo1.jpg" class="front-cover-logo" alt="Логотип">
@@ -387,6 +426,7 @@
 </div>
 
 <script>
+// Перелистывание страниц
 function turnPage(pageId, direction) {
   const page = document.getElementById('p' + pageId);
   
@@ -401,30 +441,33 @@ function turnPage(pageId, direction) {
     page.style.zIndex = 100; 
     setTimeout(() => { page.classList.remove('flipped'); }, 10);
     setTimeout(() => { 
-      if (pageId === 1) page.style.zIndex = 5;
-      else if (pageId === 2) page.style.zIndex = 4;
-      else if (pageId === 3) page.style.zIndex = 3;
-      else if (pageId === 4) page.style.zIndex = 2;
+      if (pageId === 1) page.style.zIndex = 6;
+      else if (pageId === 2) page.style.zIndex = 5;
+      else if (pageId === 3) page.style.zIndex = 4;
+      else if (pageId === 4) page.style.zIndex = 3;
+      else if (pageId === 5) page.style.zIndex = 2;
     }, 800); 
   }
 }
 
+// Закрытие книги (возврат на обложку)
 function closeBook() {
-  [1, 2, 3, 4].forEach(i => {
+  [1, 2, 3, 4, 5].forEach(i => {
     const page = document.getElementById('p' + i);
     if (page) {
       page.classList.remove('flipped');
-      if (i === 1) page.style.zIndex = 5;
-      else if (i === 2) page.style.zIndex = 4;
-      else if (i === 3) page.style.zIndex = 3;
-      else if (i === 4) page.style.zIndex = 2;
+      if (i === 1) page.style.zIndex = 6;
+      else if (i === 2) page.style.zIndex = 5;
+      else if (i === 3) page.style.zIndex = 4;
+      else if (i === 4) page.style.zIndex = 3;
+      else if (i === 5) page.style.zIndex = 2;
     }
   });
   
   const p0 = document.getElementById('p0');
   setTimeout(() => {
     p0.classList.remove('flipped');
-    p0.style.zIndex = 6;
+    p0.style.zIndex = 7;
   }, 100);
 
   document.getElementById('backToStartBtn').style.display = 'none';

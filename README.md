@@ -136,7 +136,6 @@
       margin-bottom: 15px;
     }
     
-    /* Логотип на передней обложке */
     .front-cover-logo {
       width: 80px;
       height: 80px;
@@ -160,7 +159,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     
-    /* Кнопка "Назад" на обложке */
     .back-to-start-btn {
       background: transparent;
       color: #D4AF37;
@@ -211,7 +209,6 @@
     .text-box ul { padding-left: 15px; margin: 0; }
     .text-box li { margin-bottom: 12px; }
     
-    /* Стили для гифок на левой странице */
     .gif-container {
       display: flex;
       flex-direction: column;
@@ -250,7 +247,6 @@
       padding-top: 10px;
     }
     
-    /* Страница "Спасибо" */
     .thanks-page .text-box {
       display: flex;
       flex-direction: column;
@@ -282,7 +278,7 @@
 <div class="book-viewport">
   <div class="book-wrapper" id="myBook">
     
-    <!-- ЗАДНЯЯ ОБЛОЖКА (Видна, когда книга закрыта) -->
+    <!-- ЗАДНЯЯ ОБЛОЖКА -->
     <div class="b-page back-cover-page" style="z-index: 1;">
       <div class="back-cover-text">Спасибо за прочтение<br>и удача в погоне за <span style="white-space: nowrap;">Чак-Чак!</span></div>
       <img src="https://4ak4ak.moy.su/logo1.jpg" class="back-cover-logo" alt="Чак-Чак">
@@ -302,7 +298,7 @@
       </div>
     </div>
 
-    <!-- СТРАНИЦА 3: ПРИЗЫ (ТЕКСТ СПРАВА, ГИФКА 3 СЛЕВА) -->
+    <!-- СТРАНИЦА 3: ПРИЗЫ (ТЕКСТ СПРАВА) -->
     <div class="b-page paper-page" id="p3" style="z-index: 3;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -317,7 +313,7 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- НОВАЯ ГИФКА ДЛЯ ПРИЗОВ -->
+        <!-- ГИФКА ДЛЯ ПРИЗОВ (появится, когда откроется страница 3) -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_InexpensiveBlueSquirrelNotATK-tmAsxdSkeHp.gif" class="page-gif" alt="Призы">
           <div class="gif-caption">Ценные призы ждут победителей!</div>
@@ -326,7 +322,7 @@
       </div>
     </div>
 
-    <!-- СТРАНИЦА 2: АНТИЧИТ (ТЕКСТ СПРАВА, ПЕРВАЯ ГИФКА СЛЕВА) -->
+    <!-- СТРАНИЦА 2: АНТИЧИТ (ТЕКСТ СПРАВА) -->
     <div class="b-page paper-page" id="p2" style="z-index: 4;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -340,7 +336,7 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
-        <!-- ПЕРВАЯ ГИФКА ВОЗВРАЩЕНА СЮДА -->
+        <!-- ПЕРВАЯ ГИФКА ПРО АНТИЧИТ -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
           <div class="gif-caption">Следи за статусом античита!</div>
@@ -349,7 +345,7 @@
       </div>
     </div>
 
-    <!-- СТРАНИЦА 1: ОБЩИЕ ПРАВИЛА (ТЕКСТ СПРАВА, ГИФКА 2 СЛЕВА) -->
+    <!-- СТРАНИЦА 1: ОБЩИЕ ПРАВИЛА (ТЕКСТ СПРАВА) -->
     <div class="b-page paper-page" id="p1" style="z-index: 5;">
       <div class="page-side front-side">
         <div class="text-box">
@@ -364,7 +360,7 @@
       </div>
       
       <div class="page-side back-side">
-        <!-- ВТОРАЯ ГИФКА (SDSD) -->
+        <!-- ГИФКА SDSD ДЛЯ ПЕРВОЙ СТРАНИЦЫ -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/sdsd.gif" class="page-gif" alt="Правила">
           <div class="gif-caption">Играй честно и побеждай!</div>
@@ -391,7 +387,6 @@
 </div>
 
 <script>
-// Перелистывание страниц
 function turnPage(pageId, direction) {
   const page = document.getElementById('p' + pageId);
   
@@ -403,14 +398,8 @@ function turnPage(pageId, direction) {
       document.getElementById('backToStartBtn').style.display = 'inline-block';
     }
   } else if (direction === 'prev') {
-    // Поднимаем страницу наверх, чтобы она перевернулась поверх остальных
     page.style.zIndex = 100; 
-    
-    setTimeout(() => {
-      page.classList.remove('flipped');
-    }, 10);
-
-    // После завершения анимации возвращаем нормальный z-index
+    setTimeout(() => { page.classList.remove('flipped'); }, 10);
     setTimeout(() => { 
       if (pageId === 1) page.style.zIndex = 5;
       else if (pageId === 2) page.style.zIndex = 4;
@@ -420,7 +409,6 @@ function turnPage(pageId, direction) {
   }
 }
 
-// Закрытие книги (возврат на обложку)
 function closeBook() {
   [1, 2, 3, 4].forEach(i => {
     const page = document.getElementById('p' + i);

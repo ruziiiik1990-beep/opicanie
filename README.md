@@ -13,17 +13,15 @@
       padding: 0 !important;
     }
 
-    /* Убираем overflow: hidden, чтобы книга не обрезалась */
     html, body {
       margin: 0;
       padding: 0;
       background: transparent !important;
       background-color: transparent !important;
-      overflow-y: auto; /* Разрешаем прокрутку */
+      overflow-y: auto;
       overflow-x: hidden;
     }
     
-    /* Базовые стили для книги со стрелками */
     .book-viewport {
       perspective: 2000px;
       display: flex;
@@ -31,7 +29,7 @@
       align-items: center;
       padding: 20px 0;
       background: transparent !important;
-      min-height: 100vh; /* Гарантируем, что контейнер займет всю высоту */
+      min-height: 100vh;
     }
     .book-wrapper {
       position: relative;
@@ -65,15 +63,45 @@
       transform: rotateY(180deg);
       background: #f5edd6;
     }
+    
+    /* ПЕРЕДНЯЯ ОБЛОЖКА */
     .front-cover-page {
       background: linear-gradient(135deg, #8B0000 0%, #4A0000 100%);
       border-left: 8px solid #2A0000;
       border: 2px solid #5A0000;
+      transform: rotateY(-180deg); /* По умолчанию перевернута (книга закрыта) */
     }
+    
+    /* ЗАДНЯЯ ОБЛОЖКА (ее мы видим, когда книга закрыта) */
     .back-cover-page {
-      background: #4A0000;
-      border-left: 8px solid #2A0000;
+      background: linear-gradient(135deg, #4A0000 0%, #2A0000 100%);
+      border-left: 8px solid #1A0000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
     }
+
+    .back-cover-text {
+      color: #D4AF37;
+      font-family: 'Georgia', serif;
+      font-size: 22px;
+      line-height: 1.5;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .back-cover-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #D4AF37;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    }
+
     .cover-design {
       display: flex;
       flex-direction: column;
@@ -82,6 +110,7 @@
       height: 100%;
       color: #D4AF37;
       text-align: center;
+      padding: 20px;
     }
     .cover-design h2 {
       font-family: 'Georgia', serif;
@@ -95,7 +124,7 @@
       padding: 6px 20px;
       font-weight: bold;
       font-size: 15px;
-      margin: 20px 0;
+      margin: 15px 0;
       border-radius: 4px;
       letter-spacing: 2px;
     }
@@ -103,7 +132,20 @@
       font-size: 13px;
       color: #f0e6d2;
       font-style: italic;
+      margin-bottom: 15px;
     }
+    
+    /* Логотип на передней обложке */
+    .front-cover-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #D4AF37;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
     .open-book-btn {
       background: #D4AF37;
       color: #4A0000;
@@ -113,9 +155,22 @@
       font-weight: bold;
       border-radius: 20px;
       cursor: pointer;
-      margin-top: 40px;
+      margin-top: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+    
+    .back-to-start-btn {
+      background: transparent;
+      color: #D4AF37;
+      border: 1px solid #D4AF37;
+      padding: 8px 16px;
+      font-size: 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: none;
+    }
+
     .nav-arrow {
       position: absolute;
       bottom: 20px;
@@ -161,8 +216,14 @@
       border-top: 1px dashed #ddd;
       padding-top: 10px;
     }
+    
     .b-page.flipped {
       transform: rotateY(-180deg);
+    }
+    
+    /* Переопределяем переворот для передней обложки, чтобы она была закрыта по умолчанию */
+    .b-page.front-cover-page.flipped {
+      transform: rotateY(0deg);
     }
   </style>
 </head>
@@ -171,8 +232,11 @@
 <div class="book-viewport">
   <div class="book-wrapper" id="myBook">
     
-    <!-- ЗАДНЯЯ ОБЛОЖКА -->
-    <div class="b-page back-cover-page" style="z-index: 1;"></div>
+    <!-- ЗАДНЯЯ ОБЛОЖКА (видна, когда книга закрыта) -->
+    <div class="b-page back-cover-page" style="z-index: 1;">
+      <div class="back-cover-text">Спасибо за прочтение<br>и удача в погоне за <span style="white-space: nowrap;">Чак-Чак!</span></div>
+      <img src="https://4ak4ak.moy.su/logo1.jpg" class="back-cover-logo" alt="Чак-Чак">
+    </div>
     
     <!-- СТРАНИЦА 3: ПРИЗЫ -->
     <div class="b-page paper-page" id="p3" style="z-index: 2;">
@@ -227,13 +291,15 @@
     </div>
 
     <!-- ПЕРЕДНЯЯ ОБЛОЖКА -->
-    <div class="b-page front-cover-page" id="p0" style="z-index: 5;">
+    <div class="b-page front-cover-page flipped" id="p0" style="z-index: 5;">
       <div class="page-side front-side">
         <div class="cover-design">
+          <img src="https://4ak4ak.moy.su/logo1.jpg" class="front-cover-logo" alt="Логотип">
           <h2>РУКОВОДСТВО</h2>
           <div class="gold-badge">ЧАК-ЧАК</div>
           <p>Официальные правила турниров CS2</p>
           <button class="open-book-btn" onclick="turnPage(0, 'next')">Открыть книгу 📖</button>
+          <button class="back-to-start-btn" id="backToStartBtn" onclick="closeBook()">Вернуться на обложку</button>
         </div>
       </div>
     </div>
@@ -242,15 +308,46 @@
 </div>
 
 <script>
+// Перелистывание страниц
 function turnPage(pageId, direction) {
   const page = document.getElementById('p' + pageId);
+  
   if (direction === 'next') {
     page.classList.add('flipped');
     setTimeout(() => { page.style.zIndex = pageId; }, 300);
+    
+    if (pageId === 0) {
+      document.getElementById('backToStartBtn').style.display = 'inline-block';
+    }
   } else if (direction === 'prev') {
-    page.style.zIndex = 5 - pageId;
+    page.style.zIndex = 6 - pageId;
     setTimeout(() => { page.classList.remove('flipped'); }, 50);
   }
+}
+
+// Закрытие книги (возврат на обложку)
+function closeBook() {
+  // Переворачиваем страницы 1, 2, 3 обратно
+  [1, 2, 3].forEach(i => {
+    const page = document.getElementById('p' + i);
+    if (page) {
+      page.classList.remove('flipped');
+      // Возвращаем z-index
+      if (i === 1) page.style.zIndex = 4;
+      else if (i === 2) page.style.zIndex = 3;
+      else if (i === 3) page.style.zIndex = 2;
+    }
+  });
+  
+  // Закрываем переднюю обложку
+  const p0 = document.getElementById('p0');
+  setTimeout(() => {
+    p0.classList.remove('flipped');
+    p0.style.zIndex = 5;
+  }, 100);
+
+  // Скрываем кнопку "Вернуться на обложку"
+  document.getElementById('backToStartBtn').style.display = 'none';
 }
 </script>
 

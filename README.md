@@ -23,26 +23,21 @@
     }
     
     .book-viewport {
-      perspective: 2500px;
+      perspective: 2000px;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px 0;
+      padding: 20px 0;
       background: transparent !important;
       min-height: 100vh;
-      /* Добавил отступ слева, чтобы при открытии книга не улетала за край */
-      padding-left: 20%; 
     }
-    
     .book-wrapper {
       position: relative;
-      width: 494px; 
-      height: 572px;
+      width: 380px;
+      height: 520px;
       transform-style: preserve-3d;
-      /* Сдвиг вправо (translateX) и масштаб (scale) */
-      transform: translateX(15%) scale(1.05) rotateX(15deg) rotateY(-5deg);
+      transform: rotateX(15deg) rotateY(-5deg);
     }
-    
     .b-page {
       position: absolute;
       width: 100%;
@@ -52,8 +47,8 @@
       transform-origin: left center;
       transform-style: preserve-3d;
       transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 25px rgba(0,0,0,0.4);
-      border-radius: 4px 16px 16px 4px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border-radius: 4px 12px 12px 4px;
     }
     .page-side {
       position: absolute;
@@ -62,46 +57,46 @@
       top: 0;
       left: 0;
       backface-visibility: hidden;
-      border-radius: 4px 16px 16px 4px;
+      border-radius: 4px 12px 12px 4px;
     }
     .back-side {
       transform: rotateY(180deg);
       background: #fcf8f2;
-      border-radius: 16px 4px 4px 16px;
+      border-radius: 12px 4px 4px 12px;
       border: 1px solid #e8dec9;
     }
     
     /* ПЕРЕДНЯЯ ОБЛОЖКА */
     .front-cover-page {
       background: linear-gradient(135deg, #8B0000 0%, #4A0000 100%);
-      border-left: 10px solid #2A0000;
+      border-left: 8px solid #2A0000;
       border: 2px solid #5A0000;
     }
     
     /* ЗАДНЯЯ ОБЛОЖКА */
     .back-cover-page {
       background: linear-gradient(135deg, #4A0000 0%, #2A0000 100%);
-      border-left: 10px solid #1A0000;
+      border-left: 8px solid #1A0000;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 25px;
+      padding: 20px;
     }
 
     .back-cover-text {
       color: #D4AF37;
       font-family: 'Georgia', serif;
-      font-size: 26px;
+      font-size: 22px;
       line-height: 1.5;
       font-weight: bold;
-      margin-bottom: 25px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     .back-cover-logo {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 3px solid #D4AF37;
       object-fit: cover;
@@ -116,38 +111,38 @@
       height: 100%;
       color: #D4AF37;
       text-align: center;
-      padding: 25px;
+      padding: 20px;
     }
     .cover-design h2 {
       font-family: 'Georgia', serif;
-      font-size: 32px;
-      letter-spacing: 4px;
+      font-size: 26px;
+      letter-spacing: 3px;
       margin: 0;
     }
     .gold-badge {
       background: #D4AF37;
       color: #4A0000;
-      padding: 8px 25px;
+      padding: 6px 20px;
       font-weight: bold;
-      font-size: 18px;
-      margin: 20px 0;
-      border-radius: 6px;
+      font-size: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
       letter-spacing: 2px;
     }
     .cover-design p {
-      font-size: 15px;
+      font-size: 13px;
       color: #f0e6d2;
       font-style: italic;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     
     .front-cover-logo {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       border: 2px solid #D4AF37;
       object-fit: cover;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
@@ -155,12 +150,12 @@
       background: #D4AF37;
       color: #4A0000;
       border: none;
-      padding: 12px 24px;
-      font-size: 15px;
+      padding: 10px 20px;
+      font-size: 13px;
       font-weight: bold;
-      border-radius: 25px;
+      border-radius: 20px;
       cursor: pointer;
-      margin-top: 25px;
+      margin-top: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     
@@ -168,29 +163,29 @@
       background: transparent;
       color: #D4AF37;
       border: 1px solid #D4AF37;
-      padding: 10px 20px;
-      font-size: 14px;
+      padding: 8px 16px;
+      font-size: 12px;
       border-radius: 20px;
       cursor: pointer;
-      margin-top: 15px;
+      margin-top: 10px;
       display: none;
     }
 
     .nav-arrow {
       position: absolute;
-      bottom: 25px;
+      bottom: 20px;
       background: #8B0000;
       color: #fff;
       border: none;
-      padding: 8px 18px;
-      font-size: 14px;
+      padding: 6px 14px;
+      font-size: 12px;
       border-radius: 4px;
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       z-index: 10;
     }
-    .next-arrow { right: 25px; }
-    .prev-arrow { left: 25px; }
+    .next-arrow { right: 20px; }
+    .prev-arrow { left: 20px; }
     
     .paper-page {
       background: #fcf8f2;
@@ -198,67 +193,59 @@
       border: 1px solid #e8dec9;
     }
     .text-box {
-      padding: 55px 35px 35px 55px;
+      padding: 45px 25px 30px 45px;
       font-family: sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
+      font-size: 13px;
+      line-height: 1.6;
     }
     .text-box h3 {
       font-family: 'Georgia', serif;
       color: #8B0000;
       border-bottom: 2px solid #e8dec9;
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       margin-top: 0;
-      font-size: 22px;
+      font-size: 18px;
     }
-    .text-box ul { padding-left: 20px; margin: 0; }
-    .text-box li { margin-bottom: 15px; }
+    .text-box ul { padding-left: 15px; margin: 0; }
+    .text-box li { margin-bottom: 12px; }
     
-    /* СТИЛИ ДЛЯ ГИФОК: ТЕПЕРЬ НА ВСЮ СТРАНИЦУ */
+    /* Стили для гифок */
     .gif-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100%;
-      width: 100%;
-      padding: 0; /* Убрали отступы, чтобы гифка была в край */
+      padding: 20px;
       box-sizing: border-box;
-      position: relative;
     }
     .page-gif {
       width: 100%;
-      height: 100%;
-      object-fit: cover; /* Гифка заполняет всё пространство без искажений */
-      border-radius: 16px 4px 4px 16px; /* Скругляем только левую сторону */
-      border: none;
-      margin: 0;
+      max-width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 2px solid #e8dec9;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
     }
     .gif-caption {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 8px;
       font-family: 'Georgia', serif;
+      color: #8B0000;
       font-size: 16px;
       font-weight: bold;
       text-align: center;
-      width: 80%;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+      font-style: italic;
     }
 
     .small-text-note {
       font-style: italic;
-      font-size: 13px;
+      font-size: 11px;
       color: #777;
-      margin-top: 30px;
+      margin-top: 25px;
       text-align: center;
       border-top: 1px dashed #ddd;
-      padding-top: 15px;
+      padding-top: 10px;
     }
     
     /* Страница "Спасибо" */
@@ -269,18 +256,18 @@
       align-items: center;
       height: 100%;
       text-align: center;
-      padding: 40px;
+      padding: 30px;
     }
     .thanks-page h3 {
       border: none;
       color: #8B0000;
-      font-size: 28px;
-      margin-bottom: 20px;
+      font-size: 24px;
+      margin-bottom: 15px;
     }
     .thanks-page p {
-      font-size: 18px;
+      font-size: 16px;
       color: #333;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     
     /* Страница-заставка "Читай внимательно" */
@@ -291,18 +278,18 @@
       align-items: center;
       height: 100%;
       text-align: center;
-      padding: 40px;
+      padding: 30px;
     }
     .intro-page h2 {
       border: none;
       color: #8B0000;
-      font-size: 38px;
+      font-size: 32px;
       font-family: 'Georgia', serif;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     .intro-page p {
-      font-size: 20px;
+      font-size: 18px;
       color: #555;
       font-style: italic;
     }
@@ -352,6 +339,7 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(4, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
+        <!-- ПУСТАЯ ЗАДНЯЯ СТОРОНА -->
         <button class="nav-arrow prev-arrow" onclick="turnPage(4, 'prev')">↩ Назад</button>
       </div>
     </div>
@@ -370,6 +358,7 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(3, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
+        <!-- ГИФКА ДЛЯ ПРИЗОВ (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_InexpensiveBlueSquirrelNotATK-tmAsxdSkeHp.gif" class="page-gif" alt="Призы">
           <div class="gif-caption">Ценные призы ждут победителей!</div>
@@ -392,6 +381,7 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(2, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
+        <!-- ГИФКА ПРО АНТИЧИТ (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/20261026_SuccessfulEagerPastaArsonNoSexy-gUbG2z5bg.gif" class="page-gif" alt="Античит">
           <div class="gif-caption">Следи за статусом античита!</div>
@@ -410,6 +400,7 @@
         <button class="nav-arrow next-arrow" onclick="turnPage(1, 'next')">Вперед ↪</button>
       </div>
       <div class="page-side back-side">
+        <!-- ГИФКА SDSD (ПОДНЯТА НА 1 СТРАНИЦУ ВПЕРЕД) -->
         <div class="gif-container">
           <img src="https://4ak4ak.moy.su/gif/sdsd.gif" class="page-gif" alt="Правила">
           <div class="gif-caption">Играй честно и побеждай!</div>
@@ -436,7 +427,6 @@
 </div>
 
 <script>
-// Перелистывание страниц
 function turnPage(pageId, direction) {
   const page = document.getElementById('p' + pageId);
   
@@ -460,7 +450,6 @@ function turnPage(pageId, direction) {
   }
 }
 
-// Закрытие книги (возврат на обложку)
 function closeBook() {
   [1, 2, 3, 4, 5].forEach(i => {
     const page = document.getElementById('p' + i);
